@@ -11,3 +11,6 @@
   User.create!(email: email, password: 'abc123',
                password_confirmation: 'abc123')
 end
+
+Role.create!(user_id: 1, role: "s")
+Role.create!(user_id: 2, role: "i")
