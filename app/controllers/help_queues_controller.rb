@@ -18,6 +18,16 @@ class HelpQueuesController < ApplicationController
     end
   end
 
+   def create
+    q = HelpQueue.create(helpQueue_params)
+    # movie points to an object if create was successfully, else movie points to false
+    if q.save
+      render json: q, status: :created
+    else
+      render json: q.errors, status: :unprocessable_entity
+    end
+  end
+
   # PATCH /helpQueues/1
   def update
     if current_helpQueue == @helpQueue
@@ -46,4 +56,11 @@ class HelpQueuesController < ApplicationController
   end
 
   private :set_helpQueue
+  private
+  def helpQueue_params
+    params.require(:help_queue).permit(
+    :student_id,
+    :instructor_id
+    )
+  end
 end
