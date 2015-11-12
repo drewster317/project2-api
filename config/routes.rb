@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :books, except: [:new, :edit]
 
   resources :profiles
+
+  resources :help_queues
 end
