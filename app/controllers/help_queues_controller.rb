@@ -43,12 +43,8 @@ class HelpQueuesController < ApplicationController
 
   # DELETE /helpQueues/1
   def destroy
-    if current_helpQueue == @helpQueue
-      @helpQueue.destroy
-      head :no_content
-    else
-      head :unauthorized
-    end
+    HelpQueue.find(params[:id]).destroy
+    head :ok
   end
 
   def set_helpQueue
