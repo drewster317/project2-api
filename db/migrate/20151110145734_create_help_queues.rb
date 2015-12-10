@@ -4,6 +4,8 @@ class CreateHelpQueues < ActiveRecord::Migration
 
       t.string :student_id
       t.string :instructor_id
+      t.string :status, default: 'waiting'
+      t.string :comment
       t.timestamps null: false
 
     end
