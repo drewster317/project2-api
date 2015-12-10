@@ -1,6 +1,6 @@
 class HelpQueue < ActiveRecord::Base
 
-  has_many :students
-  has_many :instructors
+  belongs_to :students, class: 'User'
+  belongs_to :instructors, class: 'User'
 
 end
