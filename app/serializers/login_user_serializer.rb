@@ -1,4 +1,4 @@
 #
 class LoginUserSerializer < UserSerializer
-  attributes :token
+  attributes :token, :instructor_role
 end
