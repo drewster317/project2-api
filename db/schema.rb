@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151210154639) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "help_queues", force: :cascade do |t|
+  create_table "help_items", force: :cascade do |t|
     t.string   "student_id"
     t.string   "instructor_id"
     t.string   "status",        default: "waiting"
