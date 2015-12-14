@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
 
   # Get the next item that is waiting out of all HelpItems
   def next_item
-    HelpItem.where(status: 'waiting').order(created_at: :desc).first
+   HelpItem.waiting.order(created_at: :desc).first
   end
 
   # if I'm a instructor I can assign myself to a help item.
   def assign_me_next_item
-    if instructor_role
+    if instructor_role?
      item_im_taking = next_item()
      item_im_taking.instructor =  self
      item_im_taking.status = 'active'

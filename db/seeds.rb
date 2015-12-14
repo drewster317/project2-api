@@ -23,9 +23,18 @@ end
 
 
 student_names.each do |name|
-  student = User.where(email: "#{name}@#{name}.com")
+  student = User.where(email: "#{name}@#{name}.com").first
+  rand(2..5).times do |i|
+    student.create_help_item("Help Item #{i} for #{name}")
+  end
 end
 
-%w(tom jeff antony saad matt).each do |name|
-  instructor = User.where(email: "#{name}@#{name}.com")
-end
+
+tom =  Profile.find_by_first_name('tom').user
+tom.assign_me_next_item
+
+jeff =  Profile.find_by_first_name('jeff').user
+jeff.assign_me_next_item
+
+saad =  Profile.find_by_first_name('saad').user
+saad.assign_me_next_item
