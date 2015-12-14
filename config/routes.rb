@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :profiles
 
-  resources :help_queues
+  resources :help_items
 end

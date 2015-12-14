@@ -5,8 +5,8 @@ student_names = %w(drew gabe timmy)
 
 # Create a couple of students
 student_names.each do |name|
-  email = "#{name}@#{name}.com"
-  user = User.create!(email: email, password: 'abc123', password_confirmation: 'abc123')
+  email = "#{name}@example.com"
+  user = User.create!(email: email, password: 'pw', password_confirmation: 'pw')
   puts "Create student user #{email}"
   user.create_profile!(first_name: name, last_name: 'jones', comment: name + " needs help")
 end
@@ -14,16 +14,16 @@ end
 teacher_names = %w(tom jeff antony saad matt)
 # Create a couple of teachers
 teacher_names.each do |name|
-  email = "#{name}@#{name}.com"
-  user = User.create!(email: email, password: 'abc123',
-               password_confirmation: 'abc123', instructor_role: true)
+  email = "#{name}@example.com"
+  user = User.create!(email: email, password: 'pw',
+               password_confirmation: 'pw', instructor_role: true)
   user.create_profile(first_name: name, last_name: 'smith', comment: name + " will help")
   puts "Create instructor user #{email}"
 end
 
 
 student_names.each do |name|
-  student = User.where(email: "#{name}@#{name}.com").first
+  student = User.where(email: "#{name}@example.com").first
   rand(2..5).times do |i|
     student.create_help_item("Help Item #{i} for #{name}")
   end

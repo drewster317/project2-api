@@ -1,0 +1,32 @@
+# User authentication
+## Register
+
+curl --include --request POST --header "Content-Type: application/json" -d '{ "credentials": { "email": "jon@example.com", "password": "pw", "password_confirmation": "pw" } }' http://localhost:3000/register
+
+## Login
+
+curl --request POST --header "Content-Type: application/json" -d '{ "credentials": { "email": "jon@example.com", "password": "pw" } }' http://localhost:3000/login
+
+# Login should return a token that all subsequent HTTP Requests will need.
+
+## Logout
+curl --request DELETE --header "Authorization: Token token=..." http://localhost:3000/logout/1
+
+# Help Items
+
+## List
+curl --header "Authorization: Token token=..." http://localhost:3000/help_items
+
+# Books
+
+## List
+
+curl --header "Authorization: Token token=..." http://localhost:3000/books
+
+**OR**
+
+curl http://localhost:3000/books
+
+## Create
+
+curl --request POST --header "Authorization: Token token=..." --header "Content-Type: application/json" -d '{ "book": { "title":"The Hold", "isbn":"abc123def456" } }'  http://localhost:3000/books
