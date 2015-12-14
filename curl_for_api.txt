@@ -5,7 +5,7 @@ curl --include --request POST --header "Content-Type: application/json" -d '{ "c
 
 ## Login
 
-curl --request POST --header "Content-Type: application/json" -d '{ "credentials": { "email": "jon@example.com", "password": "pw" } }' http://localhost:3000/login
+curl --request POST --header "Content-Type: application/json" -d '{ "credentials": { "email": "drew@example.com", "password": "pw" } }' http://localhost:3000/login
 
 # Login should return a token that all subsequent HTTP Requests will need.
 
@@ -15,7 +15,7 @@ curl --request DELETE --header "Authorization: Token token=..." http://localhost
 # Help Items
 
 ## List
-curl --header "Authorization: Token token=..." http://localhost:3000/help_items
+curl --header "Authorization: Token token=b30b8b440ff072a1b00d739fa08da09b" http://localhost:3000/help_items
 
 # Books
 

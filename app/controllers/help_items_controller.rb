@@ -6,15 +6,17 @@ class HelpItemsController < ApplicationController
   # GET /help_item
   def index
 
-    if current_user
-      if current_user.instructor_role?
-        help_items = current_user.instructor_help_items
-      else
-        help_items = current_user.student_help_items
-      end
-    else
-      help_items = HelpItem.all
-    end
+  #   if current_user
+  #     if current_user.instructor_role?
+  #       help_items = current_user.instructor_help_items
+  #     else
+  #       help_items = current_user.student_help_items
+  #     end
+  #   else
+  #     help_items = HelpItem.all
+  #   end
+
+    help_items = HelpItem.all
     render json: help_items
   end
 
