@@ -1,26 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 Profile.delete_all
 User.delete_all
 
-%w(drew gabe timmy).each do |name|
+student_names = %w(drew gabe timmy)
+
+# Create a couple of students
+student_names.each do |name|
   email = "#{name}@#{name}.com"
   user = User.create!(email: email, password: 'abc123', password_confirmation: 'abc123')
-  puts "Create user #{email}"
+  puts "Create student user #{email}"
   user.create_profile!(first_name: name, last_name: 'jones', comment: name + " needs help")
 end
 
-%w(tom jeff antony saad matt).each do |name|
+teacher_names = %w(tom jeff antony saad matt)
+# Create a couple of teachers
+teacher_names.each do |name|
   email = "#{name}@#{name}.com"
-  next if User.exists? email: email
   user = User.create!(email: email, password: 'abc123',
                password_confirmation: 'abc123', instructor_role: true)
-   user.create_profile(first_name: name, last_name: 'smith', comment: name + " will help")
-
+  user.create_profile(first_name: name, last_name: 'smith', comment: name + " will help")
+  puts "Create instructor user #{email}"
 end
 
+
+student_names.each do |name|
+  student = User.where(email: "#{name}@#{name}.com")
+end
+
+%w(tom jeff antony saad matt).each do |name|
+  instructor = User.where(email: "#{name}@#{name}.com")
+end

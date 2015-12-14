@@ -4,7 +4,7 @@ class CreateHelpItems < ActiveRecord::Migration
 
       t.string :student_id
       t.string :instructor_id
-      t.string :status, default: 'waiting'
+      t.integer :status, default: 0
       t.string :comment
       t.timestamps null: false
     end

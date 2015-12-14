@@ -7,10 +7,8 @@ class User < ActiveRecord::Base
   has_many :instructor_help_items, class_name: 'HelpItem', foreign_key: 'instructor_id'
 
   # if I'm a student I can create a help item
-  def create(comment)
-    if !instructor_role
-      student_help_items.create!(comment: "Need Help")
-    end
+  def create_help_item(comment)
+    student_help_items.create(comment: comment) unless instructor_role?
   end
 
   # Get the next item that is waiting out of all HelpItems

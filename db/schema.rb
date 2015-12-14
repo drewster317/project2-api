@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20151210154639) do
   create_table "help_items", force: :cascade do |t|
     t.string   "student_id"
     t.string   "instructor_id"
-    t.string   "status",        default: "waiting"
+    t.integer  "status",        default: 0
     t.string   "comment"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "profiles", force: :cascade do |t|
