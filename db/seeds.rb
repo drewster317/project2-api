@@ -1,5 +1,6 @@
 Profile.delete_all
 User.delete_all
+HelpItem.delete_all
 
 student_names = %w(drew gabe timmy)
 
@@ -33,8 +34,8 @@ end
 tom =  Profile.find_by_first_name('tom').user
 tom.assign_me_next_item
 
-jeff =  Profile.find_by_first_name('jeff').user
-jeff.assign_me_next_item
+# jeff =  Profile.find_by_first_name('jeff').user
+#jeff.assign_me_next_item
 
-saad =  Profile.find_by_first_name('saad').user
-saad.assign_me_next_item
+#saad =  Profile.find_by_first_name('saad').user
+#saad.assign_me_next_item

@@ -69,7 +69,8 @@ class HelpItemsController < ApplicationController
   def help_item_params
     params.require(:help_item).permit(
       :student_id,
-      :instructor_id
+      :instructor_id,
+      :comment
     )
   end
 end
